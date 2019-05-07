@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for photo in photos %}
+        <a href="{{ photo.detail_url() }}"><img src="{{ photo.url() }}" alt=""></a>
+
+        <form action="{{ photo.like_url() }}" method="post">
+            <input type="submit" value="{{ photo.likes|length or 0 }}">
+        </form>
+    {% endfor %}
+</body>
+</html>
